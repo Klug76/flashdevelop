@@ -71,9 +71,13 @@ namespace ProjectManager.Projects
         {
             get
             {
-                string url = Assembly.GetEntryAssembly().GetName().CodeBase;
-                Uri uri = new Uri(url);
-                return Path.GetDirectoryName(uri.LocalPath);
+                //:bug if directory have #
+                //string url = Assembly.GetEntryAssembly().GetName().CodeBase;
+                //Uri uri = new Uri(url);
+                //return Path.GetDirectoryName(url);
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                return Path.GetDirectoryName(path);
+
             }
         }
 
